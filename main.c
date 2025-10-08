@@ -1,21 +1,22 @@
-#include "compare.h"
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "compare.h"
+#include "treatargs.h"
 
 //#include "test-t.h"
 #define MAP_SIZE 256
 
 int main(int argc, char** argv)
 {
-	int (*compare) (const void*, const void*);
+	//int (*compare) (const void*, const void*);
 	int (**map)    (const void*, const void*);
 	int i;
-	int result = 0;
-	int tmpi = 0;
-	float tmpf = 0.0F;
-	double tmplf = 0.0L;
-	char tmpc = '\0';
+	//int result = 0;
+	//int tmpi = 0;
+	//float tmpf = 0.0F;
+	//double tmplf = 0.0L;
+	//char tmpc = '\0';
 
 	void *a = NULL;
 	void *b = NULL;
@@ -34,7 +35,9 @@ int main(int argc, char** argv)
 	map ['c'] = charcmp;
 	map ['a'] = alphacmp;
 	
-
+	treatArgs (argc, argv);
+	
+	/*
 	if (argc != 4)
 	{
 		printf ("Usage: %s <function> <value_a> <value_b>\n", argv[0]);
@@ -125,6 +128,7 @@ int main(int argc, char** argv)
 		result = compare (a, b);
 		printf("compare (%s, %s) = %d\n\n", argv[2], argv[3], result);
 	}
+	*/
 
 	if (map)
 		free (map);
@@ -132,6 +136,6 @@ int main(int argc, char** argv)
 		free (a);
 	if (b)
 		free (b);
-
+	
 	return 0;
 }

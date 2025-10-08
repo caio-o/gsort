@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>     /// POSIX-EXCLUSIVE header
 #include "treatargs.h"  
+#include "test.h"
 
 int treatArgs (int argc, char** argv)
 {
@@ -18,6 +19,11 @@ int treatArgs (int argc, char** argv)
 
 		case OPT_NUMS:
 			printf ("numbers");
+		break;
+		
+		case OPT_TEST:
+			printf ("test\n");
+			test();
 		break;
 
 		case 'a':

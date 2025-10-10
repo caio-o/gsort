@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>     /// POSIX-EXCLUSIVE header
+#include "main.h"
 #include "treatargs.h"  
 #include "test.h"
 
@@ -14,11 +15,12 @@ int treatArgs (int argc, char** argv)
 		
 		switch (option) {
 		case OPT_FILEPATH:
-			printf ("file path");
+			globalConf.ofpath = strdup (optarg);	
+			// printf ("file path: %s", optarg);
 		break;
 
 		case OPT_NUMS:
-			printf ("numbers");
+			printf ("numbers: %s", optarg);
 		break;
 		
 		case OPT_TEST:

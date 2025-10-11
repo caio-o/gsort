@@ -50,7 +50,12 @@ int main(int argc, char** argv)
 	
 	treatArgs (argc, argv);
 
-	printConfig (globalConf);
+	if (globalConf.printVersion) {
+		printf ("%s %s\n", argv[0], GSORT_VERSION);
+	}
+	else if (!globalConf.silent){
+		printConfig (globalConf);
+	}
 
 	if (map)
 		free (map);

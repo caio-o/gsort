@@ -6,6 +6,8 @@
 #define  BIT_TRUE   1U
 #define  BIT_FALSE  0U
 
+#define  GSORT_VERSION  "v0.7"
+
 struct operation;
 
 struct operation {
@@ -36,6 +38,7 @@ struct GlobalConfig {
 	BIT     (ignoreloc);
 	BIT     (exitOnFileError);
 	BIT     (unspecifiedOutFile);
+	BIT     (printVersion);
 };
 
 int printConfig (struct GlobalConfig conf);

@@ -5,8 +5,10 @@
 #define OPT_FILEPATH   'F'
 #define OPT_NUMS       'N'
 #define OPT_TEST       't'
+#define OPT_VERBOSE    'V'
+#define OPT_VERSION    'v'
 #define OPT_LIST_TYPE  "acdif"
-#define OPT_LIST_ALL   "F:N:acdift"
+#define OPT_LIST_ALL   "F:N:Vacdiftv"
 
 /*
  * treatArgs shall take the chars, and parse them (1) to set the settings and

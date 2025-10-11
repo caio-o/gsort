@@ -11,46 +11,50 @@ int treatArgs (int argc, char** argv)
 	do {
 		option = getopt (argc, argv, OPT_LIST_ALL);
 
-		printf ("\ngot option: ");
-		
 		switch (option) {
 		case OPT_FILEPATH:
 			globalConf.ofpath = strdup (optarg);	
-			// printf ("file path: %s", optarg);
-		break;
+			break;
+		
+		case OPT_VERBOSE:
+			globalConf.verbosity++;
+			break;
 
 		case OPT_NUMS:
 			printf ("numbers: %s", optarg);
-		break;
+			break;
 		
 		case OPT_TEST:
 			printf ("test\n");
 			test();
-		break;
+			break;
 
 		case 'a':
-			printf ("alpha");
-		break;
+			printf ("type: alpha");
+			break;
 
 		case 'c':
-			printf ("char");
-		break;
+			printf ("type: char");
+			break;
 
 		case 'd':
-			printf ("double");
-		break;
+			printf ("type: double");
+			break;
 
 		case 'i':
-			printf ("integer");
-		break;
+			printf ("type: integer");
+			break;
 		
 		case 'f':
-			printf ("float");
-		break;
+			printf ("type: float");
+			break;
 		}
 
 	} while (option != -1);
 	printf ("\n");
+
+	globalConf.unspecifiedOutFile = 
+		!(globalConf.ofpath && strlen (globalConf.ofpath) >= 1);
 
 	return 0;
 }

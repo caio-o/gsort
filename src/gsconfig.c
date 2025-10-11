@@ -26,11 +26,13 @@ int printConfig (struct GlobalConfig conf)
 
 	if (conf.verbosity >= 1) {
 		printf (
+		"verbosity:          %d\n"
 		"compare:            %u\n"
 		"silent:             %u\n"
 		"ignoreloc:          %u\n"
 		"exitOnFileError:    %u\n"
 		"unspecifiedOutFile: %u\n\n",
+		conf.verbosity,
 		conf.compare,
 		conf.silent,
 		conf.ignoreloc,

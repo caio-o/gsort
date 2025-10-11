@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "gsconfig.h"
 
-int printConfig (struct GlobalConfig conf)
+int printConfig (const struct GlobalConfig conf)
 {
 	int result = (conf.ifpath != NULL && conf.ofpath != NULL);
 	int i;

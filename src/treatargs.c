@@ -9,21 +9,18 @@ int treatArgs (int argc, char** argv)
 	int option;
 	int result = 0;
 
+	optind = 1;
 	if (argc <= 1) {
 		result = 1;
 	}
 
-	else if (argc == 2) {
-		option = getopt (argc, argv, "v");
-		
-		if (OPT_VERSION == option) {
-			//printf ("%s\n", GSORT_VERSION);
-			
-			globalConf.printVersion = BIT_TRUE;
-		}
+	else if (argc == 2 && OPT_VERSION == getopt (argc, argv, OPT_LIST_ALL)) {
+		globalConf.printVersion = BIT_TRUE;
 	}
 
 	else {
+		optind = 1;
+		
 		do {
 			option = getopt (argc, argv, OPT_LIST_ALL);
 	

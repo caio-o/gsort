@@ -11,13 +11,9 @@
 
 struct GlobalConfig globalConf;
 
-int main(int argc, char** argv)
+int gsConfigDefault (void)
 {
-	int (**map)    (const void*, const void*);
-	int i;
-
-	void *a = NULL;
-	void *b = NULL;
+	int result = 0;
 
 	globalConf.iFile               =  NULL;
 	globalConf.oFile               =  NULL;
@@ -29,10 +25,23 @@ int main(int argc, char** argv)
 	globalConf.separator           =  ' ';
 	
 	globalConf.compare             =  BIT_FALSE;
-	globalConf.silent              =  BIT_TRUE;
+	globalConf.silent              =  BIT_FALSE;
 	globalConf.ignoreloc           =  BIT_TRUE;
 	globalConf.exitOnFileError     =  BIT_TRUE;
 	globalConf.unspecifiedOutFile  =  BIT_FALSE;
+
+	return result;
+}
+
+int main(int argc, char** argv)
+{
+	int (**map)    (const void*, const void*);
+	int i;
+
+	void *a = NULL;
+	void *b = NULL;
+
+	gsConfigDefault ();
 
 	map = malloc (sizeof(int (*) (const void*, const void*)) * MAP_SIZE);
 

@@ -5,4 +5,9 @@
 
 extern struct GlobalConfig globalConf;
 
+/*
+ * Configure the globalConfig into the default values. Return 0 if OK.
+ */
+int gsConfigDefault (void);
+
 #endif

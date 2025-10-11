@@ -41,6 +41,6 @@ struct GlobalConfig {
 	BIT     (printVersion);
 };
 
-int printConfig (struct GlobalConfig conf);
+int printConfig (const struct GlobalConfig conf);
 
 #endif
